@@ -1,0 +1,24 @@
+intro.test: # module.route_name
+  path: '/test'
+  defaults:
+    _controller: '\Drupal\intro\Controller\IntroController::coucou' # indique le controleur à utiliser
+    _title: 'Route de test'
+  requirements:
+    _permission: 'access content' # les acccèss
+
+intro.greet: # module.route_name
+  path: '/greet'
+  defaults:
+    _controller: '\Drupal\intro\Controller\IntroController::greet' # indique le controleur à utiliser
+    _title: 'Souhait'
+  requirements:
+    _permission: 'access content' # les acccèss
+
+# route destinée à l'administration
+intro.greeting_form: # module.route_name
+  path: '/admin/config/greeting-configuration'
+  defaults:
+    _form: '\Drupal\intro\Form\GreetingConfigurationForm' #par défaut par besoin d'ajouetr la méthode builderForm
+    _title: 'Greeting Configuration'
+  requirements:
+    _permission: 'Administer site configuration' # les acccèss
