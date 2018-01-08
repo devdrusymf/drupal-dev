@@ -23,12 +23,16 @@ use Drupal\Core\Form\FormStateInterface;
     }
 
     public function buildForm(array $form, FormStateInterface $form_state){
+      // methode permet de lire les données d'un élémént dans la BDD
+      $config = $this->config('intro.custom_greeting');
+
+
       // la méthode t (translation) héritée permet d'enregistrer la chaine caractere  passée en en entrée auprès du module de tarduction
        $form['greeting'] = array(
         '#type' => 'textfield',
         '#title' => $this->t('Message de souhait'),
         '#description' => 'Merci de fournir un message',
-        '#default_value' => 'bla bla',
+        '#default_value' => $config->get('greet'),
       );
 
       // renvoie du tableau associatif  vaia la méthode

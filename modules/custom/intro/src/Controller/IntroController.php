@@ -32,14 +32,19 @@ class IntroController extends ControllerBase {
       public function greet() {
         // renvoi d'un tableau associatif avec certaines clés permettant
         // au système de rendu de drupal de créer la réponse  à retourner au client
+        $default_message = 'ciao';
+        $config  = $this->config('intro.custom_greeting');
+        $message = $config->get('greet');
 
-        $message = '';
+        $output = ($message != '') ? $message : $default_message;
+
+        /*$message = '';
         $output= '';
         if($message !=''){
           $output = $message;
         }else {
           $output = $this->message;
-        }
+        }*/
 
 
         return [
