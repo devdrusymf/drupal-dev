@@ -36,6 +36,8 @@ class IntroController extends ControllerBase {
         $config  = $this->config('intro.custom_greeting');
         $message = $config->get('greet');
 
+        // si drupal ne trouve aucune valeur associé à la clé demendée dans
+        // la table Config, on renvoie au client une valeur par défaut
         $output = ($message != '') ? $message : $default_message;
 
         /*$message = '';
