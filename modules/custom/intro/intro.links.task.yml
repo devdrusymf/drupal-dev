@@ -1,0 +1,16 @@
+# permet de faire des liens de taches comme view, edit et delete
+# associé deux taches
+intro.page: # affichige visualisation
+  route_name: intro.greet # le lien
+  title: 'View'
+  base_route: intro.greet # la page où il doit etre afficher
+
+intro.config:
+  route_name: intro.greeting_form # le lien
+  title: 'Configuration'
+  base_route: intro.greet # la page où il doit etre afficher
+
+intro.config.num:
+  route_name: intro.greeting_num_form # le lien
+  title: 'Config Nombre'
+  base_route: intro.greet # la page où il doit etre afficher

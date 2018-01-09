@@ -1,0 +1,7 @@
+# les acces rapide sont fourni par le Contextual links
+# il peut etre desintaller
+# group permet de regrouper les elements dans une famille
+intro.change:
+  title: 'change'
+  route_name: intro.greeting_form
+  group: intro.

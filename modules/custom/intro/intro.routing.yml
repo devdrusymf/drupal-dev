@@ -22,3 +22,12 @@ intro.greeting_form: # module.route_name
     _title: 'Greeting Configuration'
   requirements:
     _permission: 'Administer site configuration' # les acccèss
+
+# route destinée à l'administration
+intro.greeting_num_form: # module.route_name
+  path: '/admin/config/greeting-num-configuration'
+  defaults:
+    _form: '\Drupal\intro\Form\GreetingNumConfigurationForm' #par défaut par besoin d'ajouetr la méthode builderForm
+    _title: 'Greeting Number Configuration'
+  requirements:
+    _permission: 'Administer site configuration' # les acccèss

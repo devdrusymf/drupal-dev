@@ -34,11 +34,30 @@ class IntroController extends ControllerBase {
         // au système de rendu de drupal de créer la réponse  à retourner au client
         $default_message = 'ciao';
         $config  = $this->config('intro.custom_greeting');
+        $output_final = '';
+
+        $greet_num_enabled = boolval($config->get('greet_num_enabled'));
+
+        //var_dump($greet_num_enabled);
+
+        // recuperation du parametre et conversion en Int
+        $number = intval($config->get('greet_num'));
+
+        //var_dump($number);
+
+
         $message = $config->get('greet');
 
         // si drupal ne trouve aucune valeur associé à la clé demendée dans
         // la table Config, on renvoie au client une valeur par défaut
         $output = ($message != '') ? $message : $default_message;
+        if($greet_num_enabled){
+          for ($i=0; $i < $number ; $i++) {
+            $output_final .= '<p>' . ($i+1) . ' '.  $output.  '</p>';
+          }
+        }else {
+            $output_final = $output;
+        }
 
         /*$message = '';
         $output= '';
@@ -48,9 +67,10 @@ class IntroController extends ControllerBase {
           $output = $this->message;
         }*/
 
+        // TO DO  ajouter au tableau contextuel les clés qui permettent d'afficher les liens contextuel
 
         return [
-          '#markup' => $output,
+          '#markup' => $output_final,
         ];
 
       }

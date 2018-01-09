@@ -1,0 +1,25 @@
+<?php
+
+
+// definir un ensemble de foonctions de "hooking"
+// permet à un module d'agir avant que la réponse final soit envoyer au client
+// chaque module core expose des fonctions de hooking, il en exite une centaine
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hooks help()
+ */
+ function intro_help($route_name, RouteMatchInterface $route_match){
+   switch($route_name){
+     case 'help.page.intro' :
+      $output = '';
+      $output .= '<h3> fonctionnalité de Hook en Drupal </h3>';
+      $output .= '<p>'. t('Hook en Drupal'). '</p>';
+
+      return $output;
+
+    default;
+   }
+
+ }
